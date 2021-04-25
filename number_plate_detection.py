@@ -37,8 +37,9 @@ while True:
     cv2.imshow("Capture", img)
 
     """Saving the captured number plate to the Scanned file by pressing the 's' key"""
-
-    if cv2.waitKey(1) & 0xFF == ord("s"):
+    if cv2.waitKey(1) & 0xFF==ord('q'):
+        break
+    elif cv2.waitKey(1) & 0xFF == ord("s"):
         cv2.imwrite("Resources/Scanned/NoPlate_"+str(counter)+".jpg",img_roi)
 
         """Creating a message that will show on the screen when a number plate successfully saved"""
@@ -49,7 +50,7 @@ while True:
         cv2.waitKey(500)
         counter +=1 
         # if cv2.waitKey(1) & 0xFF == ord("q"):
-        break
+
 
 cap.release()
 cv2.destroyAllWindows()
